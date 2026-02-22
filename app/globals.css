@@ -42,6 +42,11 @@
   50%       { opacity: 1; }
 }
 
+@keyframes diagonal-shine {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
 /* ─── Animation utility classes ────────────────────────────── */
 .animate-fade-in-up {
   animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -58,6 +63,10 @@
 }
 .animate-pulse-glow {
   animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.diagonal-shine {
+  animation: diagonal-shine 2.5s ease-in-out infinite;
 }
 
 /* stagger helpers */

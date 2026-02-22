@@ -1,7 +1,8 @@
-import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { Instagram, Linkedin, Code2, Mail, Phone } from "lucide-react"
 
-import { navLinks, siteConfig } from "@/constants/site"
+import { Link } from "@/i18n/navigation"
+import { navLinkKeys, navHrefs, siteConfig } from "@/constants/site"
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -20,6 +21,8 @@ function DiscordIcon({ className }: { className?: string }) {
 }
 
 export function Footer() {
+  const t = useTranslations("footer")
+  const tNav = useTranslations("nav")
   return (
     <footer className="relative border-t border-border/60 bg-background">
       {/* Subtle top glow */}
@@ -41,7 +44,7 @@ export function Footer() {
               <span className="text-primary">.</span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              {siteConfig.description}
+              {t("description")}
             </p>
             {/* Quick contact */}
             <div className="space-y-1.5">
@@ -65,23 +68,35 @@ export function Footer() {
           {/* Nav */}
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
-              Navigation
+              {t("nav")}
             </p>
             <nav className="flex flex-col gap-2.5">
-              {navLinks.map((link) => (
+              {navLinkKeys.map((key) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={key}
+                  href={navHrefs[key]}
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  {link.label}
+                  {tNav(key)}
                 </Link>
               ))}
               <Link
                 href="/devis"
                 className="text-sm font-medium text-primary/80 transition-colors hover:text-primary"
               >
-                Demande de Devis →
+                {t("quote")} →
+              </Link>
+              <Link
+                href="/mentions-legales"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {t("legal")}
+              </Link>
+              <Link
+                href="/cgv"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {t("cgv")}
               </Link>
             </nav>
           </div>
@@ -89,7 +104,7 @@ export function Footer() {
           {/* Socials */}
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
-              Réseaux
+              {t("socials")}
             </p>
             <div className="flex flex-col gap-2.5">
               {[
@@ -132,10 +147,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {siteConfig.name}. Tous droits réservés.
+            © {new Date().getFullYear()} {siteConfig.name}. {t("copyright")}
           </p>
           <p className="font-mono-accent text-muted-foreground/50">
-            built with Next.js · React · TypeScript
+            {t("built")}
           </p>
         </div>
       </div>

@@ -1,20 +1,75 @@
 "use client"
 
-import Link from "next/link"
+import { useRef, useEffect } from "react"
 import Image from "next/image"
-import { ArrowUpRight, ExternalLink } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 import { workItems } from "@/constants/site"
 import { useInView } from "@/hooks/use-in-view"
+import { SectionGlow } from "@/components/shared/section-glow"
 import { cn } from "@/lib/utils"
 
+const AUTO_SCROLL_INTERVAL = 4000
+
+/** 85° diagonal : tan(5°) ≈ 8.7% de largeur pour hauteur complète */
+const DIAGONAL_OFFSET = "8.7%"
+
 export function WorkSection() {
+  const t = useTranslations("work")
+  const scrollRef = useRef<HTMLDivElement>(null)
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.05 })
+
+  const scroll = (direction: "left" | "right") => {
+    const el = scrollRef.current
+    if (!el) return
+    const slide = el.querySelector<HTMLElement>("[data-slide]")
+    const step = slide?.offsetWidth ?? el.clientWidth
+    el.scrollBy({
+      left: direction === "left" ? -step : step,
+      behavior: "smooth",
+    })
+  }
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+
+    const interval = setInterval(() => {
+      const maxScroll = el.scrollWidth - el.clientWidth
+      if (maxScroll <= 0) return
+
+      const slide = el.querySelector<HTMLElement>("[data-slide]")
+      const step = slide?.offsetWidth ?? el.clientWidth
+      if (el.scrollLeft >= maxScroll - 10) {
+        el.scrollTo({ left: 0, behavior: "smooth" })
+      } else {
+        el.scrollBy({ left: step, behavior: "smooth" })
+      }
+    }, AUTO_SCROLL_INTERVAL)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const getClipPath = (i: number, total: number) => {
+    const hasLeft = i > 0
+    const hasRight = i < total - 1
+    if (hasLeft && hasRight) {
+      return `polygon(${DIAGONAL_OFFSET} 0, 100% 0, calc(100% - ${DIAGONAL_OFFSET}) 100%, 0 100%)`
+    }
+    if (hasLeft) {
+      return `polygon(${DIAGONAL_OFFSET} 0, 100% 0, 100% 100%, 0 100%)`
+    }
+    if (hasRight) {
+      return `polygon(0 0, 100% 0, calc(100% - ${DIAGONAL_OFFSET}) 100%, 0 100%)`
+    }
+    return "none"
+  }
 
   return (
     <section
       id="work"
-      className="relative py-28 px-4 sm:px-6 lg:px-8"
+      className="relative py-12 px-4 sm:px-6 lg:px-8"
     >
       {/* Section background accent */}
       <div
@@ -25,90 +80,156 @@ export function WorkSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.5)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_40%,transparent_100%)]"
       />
+      <SectionGlow position="left" />
 
-      <div ref={ref} className="mx-auto max-w-6xl">
+      <div ref={ref} className="relative">
         {/* Header */}
         <div
           className={cn(
-            "mb-16 space-y-4 text-center",
+            "mb-8 space-y-3 text-center",
             inView ? "animate-fade-in-up" : "opacity-0"
           )}
         >
           <p className="font-mono-accent font-semibold text-primary">
-            études de cas
+            {t("label")}
           </p>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            Nos Réalisations
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
+            {t("title")}
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
-            Une sélection des produits que nous avons livrés — des MVPs aux
-            plateformes à grande échelle.
+            {t("subtitle")}
           </p>
           <div className="mx-auto w-12 h-px bg-primary/50 mt-2" />
         </div>
 
-        {/* Grid */}
-        <div className="grid gap-6 sm:grid-cols-2">
-          {workItems.map((item, i) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className={cn(
-                "group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/8",
-                inView ? "animate-fade-in-up" : "opacity-0"
-              )}
-              style={{ animationDelay: inView ? `${i * 100 + 100}ms` : "0ms" }}
+        {/* Carousel - 90% de la largeur de la page */}
+        <div className="relative mx-auto w-[90vw] max-w-[90vw] overflow-hidden rounded-xl">
+          <div
+            className="relative overflow-hidden"
+            style={{
+              height: "min(58vh, 480px)",
+              minHeight: "420px",
+            }}
+          >
+            <div
+              ref={scrollRef}
+              className="flex h-full overflow-x-auto overflow-y-hidden scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              style={{ scrollSnapType: "x mandatory" }}
             >
-              {/* Image */}
-              <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-primary/20 via-primary/8 to-muted/30">
-                {item.image ? (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            {workItems.map((item, i) => (
+              <div
+                key={item.key}
+                data-slide
+                className="relative flex shrink-0 snap-center w-[min(75%,420px)] min-w-[min(75%,420px)] sm:w-[min(70%,480px)] sm:min-w-[min(70%,480px)] md:w-[min(60%,520px)] md:min-w-[min(60%,520px)]"
+                style={{ scrollSnapAlign: "center" }}
+              >
+                {/* Séparateur diagonal 85° - ombre douce */}
+                {i > 0 && (
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute left-0 top-0 z-20 h-full w-12 -translate-x-1/2"
+                    style={{
+                      background: `linear-gradient(85deg, 
+                        transparent 0%, 
+                        rgba(0,0,0,0.3) 30%, 
+                        rgba(0,0,0,0.6) 50%, 
+                        rgba(0,0,0,0.3) 70%, 
+                        transparent 100%)`,
+                      boxShadow: "2px 0 12px rgba(0,0,0,0.25), -2px 0 12px rgba(0,0,0,0.25)",
+                    }}
                   />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono-accent text-3xl font-bold text-primary/20">
-                      {item.title.slice(0, 2).toUpperCase()}
-                    </span>
-                  </div>
                 )}
 
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <a
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={cn(
+                    "group relative flex h-full w-full overflow-hidden transition-opacity hover:opacity-95",
+                    inView ? "animate-fade-in-up" : "opacity-0"
+                  )}
+                  style={{
+                    animationDelay: `${Math.min(i * 80, 300)}ms`,
+                    clipPath: getClipPath(i, workItems.length),
+                    WebkitClipPath: getClipPath(i, workItems.length),
+                  }}
+                >
+                  {/* Image - prend toute la diagonale / plein parallélogramme */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/8 to-muted/30">
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        alt={t(`items.${item.key}.title`)}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="(max-width: 640px) 75vw, (max-width: 768px) 70vw, 520px"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-mono-accent text-4xl font-bold text-primary/20">
+                          {item.key.slice(0, 2).toUpperCase()}
+                        </span>
+                      </div>
+                    )}
+                  </div>
 
-                {/* Arrow badge */}
-                <div className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 shadow-md backdrop-blur-sm opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                  <ArrowUpRight className="h-4 w-4 text-foreground" />
-                </div>
-              </div>
+                  {/* Effet luminosité - gradient sombre pour lisible */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background: `
+                        linear-gradient(to top, 
+                          rgba(0,0,0,0.8) 0%, 
+                          rgba(0,0,0,0.4) 35%, 
+                          rgba(0,0,0,0.15) 55%, 
+                          transparent 75%),
+                        radial-gradient(ellipse 100% 80% at 50% 80%, 
+                          rgba(0,0,0,0.2) 0%, 
+                          transparent 50%)
+                      `,
+                    }}
+                  />
 
-              {/* Content */}
-              <div className="flex flex-1 flex-col gap-2.5 p-6">
-                <div className="flex items-start justify-between gap-2">
-                  <p className="text-base font-bold tracking-tight text-foreground leading-tight">
-                    {item.title}
-                  </p>
-                  <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground/40 transition-colors group-hover:text-primary/60" />
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground line-clamp-3">
-                  {item.description}
-                </p>
-                <div className="mt-auto pt-3 border-t border-border/60">
-                  <span className="text-xs font-medium text-primary/70 font-mono-accent">
-                    Voir le projet →
-                  </span>
-                </div>
+                  {/* Texte superposé - thème du site, hiérarchie claire */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 pl-[12%] pr-[12%] pb-4 pt-10 sm:pl-[14%] sm:pr-[14%] sm:pb-5 sm:pt-14">
+                    <h3 className="text-lg font-bold tracking-tight text-primary-foreground [text-shadow:0_1px_3px_rgba(0,0,0,0.5)] sm:text-xl">
+                      {t(`items.${item.key}.title`)}
+                    </h3>
+                    <p className="line-clamp-2 text-sm leading-relaxed text-gray-300 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)] sm:line-clamp-3">
+                      {t(`items.${item.key}.description`)}
+                    </p>
+                    <span className="mt-0.5 text-xs font-medium text-primary font-mono-accent [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+                      {t("seeProject")} →
+                    </span>
+                  </div>
+                </a>
               </div>
-            </Link>
-          ))}
+            ))}
+            </div>
+          </div>
         </div>
+
+        {/* Nav buttons - sous le carrousel */}
+        <div className="mt-6 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => scroll("left")}
+              aria-label={t("prev")}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-card/95 shadow-[0_2px_8px_rgba(0,0,0,0.15)] backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-muted/80 sm:h-10 sm:w-10"
+            >
+              <ChevronLeft className="h-4 w-4 text-foreground sm:h-5 sm:w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scroll("right")}
+              aria-label={t("next")}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-card/95 shadow-[0_2px_8px_rgba(0,0,0,0.15)] backdrop-blur-sm transition-colors hover:border-primary/40 hover:bg-muted/80 sm:h-10 sm:w-10"
+            >
+              <ChevronRight className="h-4 w-4 text-foreground sm:h-5 sm:w-5" />
+            </button>
+          </div>
       </div>
     </section>
   )
 }
-

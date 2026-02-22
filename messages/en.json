@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "locales": { "en": "English", "fr": "Français" },
+    "solutions": "Solutions",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "quote": "Request Quote"
+  },
+  "hero": {
+    "tagline": "We create digital products that make a difference",
+    "description": "Nexora is a full-service development agency that designs high-performance web and mobile experiences for startups and growing businesses.",
+    "available": "Available for new projects",
+    "ctaWork": "View our work",
+    "ctaContact": "Start a project",
+    "stats": {
+      "projects": "Projects delivered",
+      "clients": "Happy clients",
+      "experience": "Years of experience"
+    }
+  },
+  "services": {
+    "label": "what we do",
+    "title": "Our Solutions",
+    "subtitle": "Complete delivery of digital products — from initial architecture to production launch and beyond.",
+    "items": {
+      "web": {
+        "title": "Web Development",
+        "description": "Full-stack web applications built with modern frameworks — fast, accessible, and production-ready."
+      },
+      "mobile": {
+        "title": "Mobile Development",
+        "description": "Cross-platform mobile apps for iOS and Android, designed for performance and an exceptional user experience."
+      },
+      "ui": {
+        "title": "UI / UX Design",
+        "description": "Design systems and interfaces that convert — clean, intentional, and aligned with your brand identity from day one."
+      },
+      "api": {
+        "title": "API & Integrations",
+        "description": "Robust APIs and third-party integrations that unify your stack and automate your workflows."
+      },
+      "audit": {
+        "title": "Performance Audits",
+        "description": "In-depth audits that identify bottlenecks and reduce load times — guaranteed measurable improvements."
+      },
+      "consulting": {
+        "title": "Technical Consulting",
+        "description": "Architecture reviews, team strengthening, and strategic guidance to move your product forward."
+      }
+    }
+  },
+  "work": {
+    "items": {
+      "yesmorebet": {
+        "title": "Yes More Bet",
+        "description": "Professional croupier for your casino events on the French Riviera. Blackjack and Roulette tables, premium entertainment. Nice, Cannes, Grasse, Antibes. Free quote."
+      },
+      "plombier": {
+        "title": "SOS Plombier Vence & area",
+        "description": "Plumber in Vence, Cagnes-sur-Mer, Nice and across the Alpes-Maritimes. Emergency repairs, unblocking, water heaters and renovation. Free quote with no commitment."
+      },
+      "escadia": {
+        "title": "ESCADIA | Escape Game",
+        "description": "Immersive escape game with professional actors. The Refuge (horror) and Planet Escadia (sci-fi). Experience 80 minutes of terror with special effects and full-scale sets. Book now!"
+      },
+      "depanneurs": {
+        "title": "Emergency Services Platform",
+        "description": "24/7 emergency repair service in Nice and the Alpes-Maritimes. Locksmith, plumber, glazier, electrician. 30-minute response. Free quote."
+      }
+    },
+    "label": "case studies",
+    "title": "Our Work",
+    "subtitle": "A selection of products we've delivered — from MVPs to large-scale platforms.",
+    "seeProject": "View project",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "about": {
+    "label": "who we are",
+    "title": "Built to deliver.",
+    "titleAlt": "Designed to last.",
+    "intro1": "Nexora is a full-service development agency that brings together senior engineers and product designers to create exceptional digital experiences. We support founders, product teams, and companies at every stage — from zero to one and beyond.",
+    "intro2": "We're selective about the projects we take on because we hold ourselves to high standards. Every engagement benefits from our full attention and a shared commitment to results that make a real difference.",
+    "values": [
+      "Direct access to the engineers building your product",
+      "Clean, tested, and documented source code",
+      "Deadlines met, budgets controlled",
+      "Transparent communication at every step"
+    ],
+    "stats": {
+      "projects": "Projects delivered",
+      "satisfaction": "Client satisfaction",
+      "experience": "Years of experience",
+      "rating": "Average rating"
+    },
+    "process": "our process",
+    "steps": {
+      "discovery": "Discovery & strategy",
+      "design": "Design & prototype",
+      "dev": "Iterative development",
+      "delivery": "Delivery & support"
+    }
+  },
+  "contact": {
+    "label": "let's talk",
+    "title": "Start",
+    "titleLine2": "a Project",
+    "subtitle": "Have an idea or an existing product to improve? Send us a message — we reply within one business day.",
+    "email": "Email",
+    "phone": "Phone",
+    "form": {
+      "name": "name",
+      "namePlaceholder": "Alex Johnson",
+      "email": "email",
+      "emailPlaceholder": "alex@company.com",
+      "subject": "subject",
+      "subjectPlaceholder": "New project / Consulting / Other",
+      "message": "message",
+      "messagePlaceholder": "Tell us about your project, your goals, and your timeline…",
+      "submit": "Send message",
+      "sending": "Sending…"
+    },
+    "success": "Message sent!",
+    "successDetail": "We will contact you very soon.",
+    "error": "An error occurred",
+    "errorDetail": "Please try again or contact us directly at",
+    "retry": "Retry",
+    "guarantee": "Guaranteed response within 24 business hours."
+  },
+  "footer": {
+    "description": "Nexora is a full-service development agency that designs high-performance web and mobile experiences for startups and growing businesses.",
+    "nav": "Navigation",
+    "socials": "Socials",
+    "quote": "Request a Quote",
+    "legal": "Legal Notice",
+    "cgv": "Terms of Sale",
+    "copyright": "All rights reserved.",
+    "built": "built with Next.js · React · TypeScript"
+  },
+  "devis": {
+    "label": "Estimate your project",
+    "title": "Request a Quote",
+    "subtitle": "Fill out the form below and we'll get back to you with a detailed estimate within 48 hours.",
+    "sent": "Request sent!",
+    "sentDetail": "We'll get back to you very soon with your quote.",
+    "error": "An error occurred",
+    "errorDetail": "The submission failed. Please try again or contact us directly at",
+    "retry": "Retry",
+    "form": {
+      "name": "Full name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "type": "Project type",
+      "budget": "Estimated budget",
+      "description": "Project description",
+      "submit": "Submit my request",
+      "sending": "Sending…",
+      "placeholders": {
+        "name": "John Doe",
+        "company": "Acme Inc",
+        "email": "john@acme.com",
+        "phone": "+1 555 000 0000",
+        "type": "Select a type",
+        "budget": "Budget range",
+        "description": "Describe your project, goals, constraints and ideal timeline…"
+      },
+      "types": {
+        "web": "Web application",
+        "mobile": "Mobile application",
+        "design": "UI / UX Design",
+        "api": "API & Integrations",
+        "audit": "Performance audit",
+        "consulting": "Technical consulting",
+        "other": "Other"
+      },
+      "budgets": {
+        "500_1000": "€500 — €1,000",
+        "1000_2000": "€1,000 — €2,000",
+        "2000_4000": "€2,000 — €4,000",
+        "4000_8000": "€4,000 — €8,000",
+        "gt8000": "€8,000+"
+      },
+      "typeError": "Please select a project type."
+    },
+    "contact": {
+      "title": "Contact us",
+      "phone": "Phone",
+      "email": "Email",
+      "prefer": "Prefer to chat directly? Call us or send an email — we typically respond within a few hours on business days."
+    }
+  },
+  "ui": {
+    "toggleMenu": "Toggle menu",
+    "toggleTheme": "Toggle theme"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "section1Title": "1. Legal Information",
+    "section1Content": "The Nexora Agency website is published by Nexora Agency, trading name of Mr. Lemine Mahjoub, Sole Proprietor, registered under number 944 710 391.\n\nVAT number: FR58 930 678 123\nPublication director: Lemine Mahjoub\nEmail: contact@nexora-agency.fr\nPhone: +33 6 01 07 61 29",
+    "section2Title": "2. Hosting",
+    "section2Content": "The site is hosted by IONOS on their servers located in Paris, France.",
+    "section3Title": "3. Intellectual Property",
+    "section3Content": "All content on this site (texts, images, videos, etc.) is the exclusive property of Nexora Agency or its partners. Any reproduction, representation, modification, publication or adaptation, in whole or in part, is prohibited without prior written authorization.",
+    "section4Title": "4. Personal Data",
+    "section4Content": "Information collected on this site is processed by Nexora Agency for customer management and business development.\n\nIn accordance with the French Data Protection Act of January 6, 1978, as amended, you have the right to access, rectify and delete your personal data. You may exercise this right by contacting us at: contact@nexora-agency.fr.",
+    "section5Title": "5. Cookies",
+    "section5Content": "This site uses cookies to improve the user experience. By continuing to browse, you accept the use of cookies in accordance with our privacy policy.",
+    "section6Title": "6. Limitation of Liability",
+    "section6Content": "Nexora Agency shall not be held liable for any direct or indirect damage resulting from the use of the site or the inability to access it. Nexora Agency reserves the right to modify the content of the site at any time, without notice.",
+    "section7Title": "7. Applicable Law and Jurisdiction",
+    "section7Content": "These legal notices are governed by French law. In the event of a dispute, the French courts shall have exclusive jurisdiction."
+  },
+  "cgv": {
+    "title": "Terms and Conditions of Sale",
+    "intro": "These Terms and Conditions of Sale (TCS) apply to all services offered by Nexora Agency.",
+    "sections": {
+      "1": {
+        "title": "1. Scope",
+        "content": "These TCS govern the contractual relationship between Nexora Agency (hereinafter \"the Provider\") and any individual or legal entity (hereinafter \"the Client\") using its development, consulting or design services. Acceptance of a quote or signing of an order form constitutes acceptance of these terms."
+      },
+      "2": {
+        "title": "2. Services",
+        "content": "Services are defined in the quote or order form signed by the Client. The Provider undertakes to deliver services in accordance with agreed specifications and within the agreed timeframe."
+      },
+      "3": {
+        "title": "3. Quotes and Orders",
+        "content": "All quotes are valid for 30 days from the date of issue. An order is binding only after signing the order form or quote and receipt of any deposit. The Provider reserves the right to modify its pricing after the quote has expired."
+      },
+      "4": {
+        "title": "4. Pricing and Payment Terms",
+        "content": "Prices are quoted in euros, excluding tax (excl. VAT). VAT is applied at the rate in force. Payment terms are specified in the quote (deposit, schedule, balance on delivery). Late payment will result in penalties of 3 times the statutory interest rate, plus a flat fee of €40 for collection costs."
+      },
+      "5": {
+        "title": "5. Delivery and Deadlines",
+        "content": "Indicated deadlines are given for guidance only. Exceeding deadlines shall not justify cancellation of the order, payment withholding or damages, unless otherwise agreed in writing. The Provider undertakes to inform the Client in the event of foreseeable delay."
+      },
+      "6": {
+        "title": "6. Deliverables and Intellectual Property",
+        "content": "Deliverables are handed over to the Client upon receipt of the balance. Intellectual property rights on deliverables are transferred to the Client after full payment. Materials provided by the Client (texts, logos, images) remain their property. The Provider retains the right to present completed work for professional purposes."
+      },
+      "7": {
+        "title": "7. Claims",
+        "content": "Any claim must be made in writing (email or letter) within 8 days of delivery. After this period, deliverables are deemed accepted without reservation."
+      },
+      "8": {
+        "title": "8. Confidentiality",
+        "content": "Each party undertakes to keep confidential all documents and information exchanged in the course of the engagement. This obligation survives the end of the contract."
+      },
+      "9": {
+        "title": "9. Termination",
+        "content": "In the event of a serious breach by either party, the other may terminate the contract by right after a formal notice has remained without effect for 15 days. In case of termination at the Client's initiative, amounts already paid remain with the Provider."
+      },
+      "10": {
+        "title": "10. Applicable Law and Disputes",
+        "content": "These TCS are governed by French law. Any dispute shall be submitted to the competent courts at the Provider's registered office."
+      }
+    }
+  }
+}

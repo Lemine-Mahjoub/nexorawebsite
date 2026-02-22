@@ -2,32 +2,25 @@
 
 import { useState } from "react"
 import { Send, Mail, Phone, CheckCircle2, AlertCircle } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 import { siteConfig } from "@/constants/site"
 import { useInView } from "@/hooks/use-in-view"
+import { SectionGlow } from "@/components/shared/section-glow"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 
-const contactItems = [
-  {
-    icon: Mail,
-    label: "Email",
-    getValue: () => siteConfig.email,
-    getHref: () => `mailto:${siteConfig.email}`,
-  },
-  {
-    icon: Phone,
-    label: "Téléphone",
-    getValue: () => siteConfig.phone,
-    getHref: () => siteConfig.phoneHref,
-  },
-]
-
 export function ContactSection() {
+  const t = useTranslations("contact")
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+
+  const contactItems = [
+    { icon: Mail, key: "email" as const, getValue: () => siteConfig.email, getHref: () => `mailto:${siteConfig.email}` },
+    { icon: Phone, key: "phone" as const, getValue: () => siteConfig.phone, getHref: () => siteConfig.phoneHref },
+  ]
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.05 })
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -48,8 +41,9 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-28 px-4 sm:px-6 lg:px-8">
-      <div ref={ref} className="mx-auto max-w-6xl">
+    <section id="contact" className="relative overflow-hidden py-28 px-4 sm:px-6 lg:px-8">
+      <SectionGlow position="left" />
+      <div ref={ref} className="relative mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">
 
           {/* Left – info */}
@@ -61,22 +55,21 @@ export function ContactSection() {
           >
             <div className="space-y-4">
               <p className="font-mono-accent font-semibold text-primary">
-                parlons-en
+                {t("label")}
               </p>
               <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl leading-tight">
-                Démarrer
+                {t("title")}
                 <br />
-                un Projet
+                {t("titleLine2")}
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Vous avez une idée ou un produit existant à améliorer ?
-                Envoyez-nous un message — nous répondons sous un jour ouvré.
+                {t("subtitle")}
               </p>
             </div>
 
             {/* Contact items */}
             <div className="space-y-3">
-              {contactItems.map(({ icon: Icon, label, getValue, getHref }) => {
+              {contactItems.map(({ icon: Icon, key, getValue, getHref }) => {
                 const value = getValue()
                 const href = getHref()
                 const inner = (
@@ -86,7 +79,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="text-xs font-medium text-muted-foreground/70 font-mono-accent mb-0.5">
-                        {label}
+                        {t(key)}
                       </p>
                       <p className="text-sm font-medium text-foreground">{value}</p>
                     </div>
@@ -94,18 +87,18 @@ export function ContactSection() {
                 )
                 return href ? (
                   <a
-                    key={label}
+                    key={key}
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="block rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/30 hover:bg-muted/30"
+                    className="block rounded-xl border border-border bg-card p-4 shadow-sm shadow-primary/5 transition-colors hover:border-primary/30 hover:bg-muted/30"
                   >
                     {inner}
                   </a>
                 ) : (
                   <div
-                    key={label}
-                    className="rounded-xl border border-border bg-card p-4"
+                    key={key}
+                    className="rounded-xl border border-border bg-card p-4 shadow-sm shadow-primary/5"
                   >
                     {inner}
                   </div>
@@ -124,11 +117,9 @@ export function ContactSection() {
               <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-12 text-center">
                 <CheckCircle2 className="h-12 w-12 text-emerald-500" />
                 <div>
-                  <p className="text-xl font-bold">Message envoyé !</p>
+                  <p className="text-xl font-bold">{t("success")}</p>
                   <p className="mt-1.5 text-sm text-muted-foreground">
-                    Nous vous contacterons à{" "}
-                    <span className="text-primary font-medium">{siteConfig.email}</span>{" "}
-                    très prochainement.
+                    {t("successDetail")}
                   </p>
                 </div>
               </div>
@@ -136,9 +127,9 @@ export function ContactSection() {
               <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-destructive/30 bg-destructive/5 p-12 text-center">
                 <AlertCircle className="h-12 w-12 text-destructive" />
                 <div>
-                  <p className="text-xl font-bold">Une erreur est survenue</p>
+                  <p className="text-xl font-bold">{t("error")}</p>
                   <p className="mt-1.5 text-sm text-muted-foreground">
-                    Veuillez réessayer ou nous écrire directement à{" "}
+                    {t("errorDetail")}{" "}
                     <a href={`mailto:${siteConfig.email}`} className="text-primary underline underline-offset-2">
                       {siteConfig.email}
                     </a>.
@@ -148,36 +139,36 @@ export function ContactSection() {
                   onClick={() => setStatus("idle")}
                   className="text-sm font-medium text-muted-foreground underline underline-offset-2 hover:text-foreground"
                 >
-                  Réessayer
+                  {t("retry")}
                 </button>
               </div>
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="space-y-5 rounded-2xl border border-border bg-card p-8 shadow-sm"
+                className="space-y-5 rounded-2xl border border-border bg-card p-8 shadow-sm shadow-primary/5"
               >
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
                     <Label htmlFor="name" className="text-xs font-medium text-muted-foreground font-mono-accent">
-                      nom
+                      {t("form.name")}
                     </Label>
                     <Input
                       id="name"
                       name="name"
-                      placeholder="Alex Johnson"
+                      placeholder={t("form.namePlaceholder")}
                       required
                       className="bg-background"
                     />
                   </div>
                   <div className="space-y-1.5">
                     <Label htmlFor="email" className="text-xs font-medium text-muted-foreground font-mono-accent">
-                      email
+                      {t("form.email")}
                     </Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="alex@entreprise.fr"
+                      placeholder={t("form.emailPlaceholder")}
                       required
                       className="bg-background"
                     />
@@ -186,12 +177,12 @@ export function ContactSection() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="subject" className="text-xs font-medium text-muted-foreground font-mono-accent">
-                    sujet
+                    {t("form.subject")}
                   </Label>
                   <Input
                     id="subject"
                     name="subject"
-                    placeholder="Nouveau projet / Conseil / Autre"
+                    placeholder={t("form.subjectPlaceholder")}
                     required
                     className="bg-background"
                   />
@@ -199,13 +190,13 @@ export function ContactSection() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="message" className="text-xs font-medium text-muted-foreground font-mono-accent">
-                    message
+                    {t("form.message")}
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
                     rows={5}
-                    placeholder="Parlez-nous de votre projet, de vos objectifs et de votre calendrier…"
+                    placeholder={t("form.messagePlaceholder")}
                     required
                     className="resize-none bg-background"
                   />
@@ -215,14 +206,14 @@ export function ContactSection() {
                   type="submit"
                   size="lg"
                   disabled={status === "sending"}
-                  className="w-full gap-2 shadow-md shadow-primary/15"
+                  className="w-full gap-2 shadow-md shadow-primary/5"
                 >
-                  {status === "sending" ? "Envoi en cours…" : "Envoyer le message"}
+                  {status === "sending" ? t("form.sending") : t("form.submit")}
                   <Send className="h-4 w-4" />
                 </Button>
 
                 <p className="text-center text-xs text-muted-foreground/60">
-                  Réponse garantie sous 24h ouvrées.
+                  {t("guarantee")}
                 </p>
               </form>
             )}

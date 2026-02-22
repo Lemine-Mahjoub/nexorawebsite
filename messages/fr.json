@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "locales": { "en": "English", "fr": "Français" },
+    "solutions": "Solutions",
+    "work": "Réalisations",
+    "about": "À propos",
+    "contact": "Contact",
+    "quote": "Demande Devis"
+  },
+  "hero": {
+    "tagline": "Nous créons des produits digitaux qui font la différence",
+    "description": "Nexora est une agence de développement full-service qui conçoit des expériences web et mobiles haute performance pour les startups et les entreprises en croissance.",
+    "available": "Disponible pour de nouveaux projets",
+    "ctaWork": "Voir nos réalisations",
+    "ctaContact": "Démarrer un projet",
+    "stats": {
+      "projects": "Projets livrés",
+      "clients": "Clients satisfaits",
+      "experience": "D'expérience"
+    }
+  },
+  "services": {
+    "label": "ce que nous faisons",
+    "title": "Nos Solutions",
+    "subtitle": "Livraison complète de produits digitaux — de l'architecture initiale au lancement en production et au-delà.",
+    "items": {
+      "web": {
+        "title": "Développement Web",
+        "description": "Applications web full-stack construites avec des frameworks modernes — rapides, accessibles et prêtes pour la production."
+      },
+      "mobile": {
+        "title": "Développement Mobile",
+        "description": "Applications mobiles cross-platform pour iOS et Android, conçues pour la performance et une expérience utilisateur exceptionnelle."
+      },
+      "ui": {
+        "title": "UI / UX Design",
+        "description": "Systèmes de design et interfaces qui convertissent — épurés, intentionnels et dans l'identité de votre marque dès le premier jour."
+      },
+      "api": {
+        "title": "API & Intégrations",
+        "description": "APIs robustes et intégrations tierces qui unifient votre stack et automatisent vos flux de travail."
+      },
+      "audit": {
+        "title": "Audits de Performance",
+        "description": "Audits approfondis qui identifient les goulots d'étranglement et réduisent les temps de chargement — des améliorations mesurables garanties."
+      },
+      "consulting": {
+        "title": "Conseil Technique",
+        "description": "Revues d'architecture, renforcement d'équipe et guidance stratégique pour faire avancer votre produit."
+      }
+    }
+  },
+  "work": {
+    "items": {
+      "yesmorebet": {
+        "title": "Yes More Bet",
+        "description": "Croupier professionnel pour vos événements casino sur la Côte d'Azur. Tables de Blackjack, Roulette, animations haut de gamme. Nice, Cannes, Grasse, Antibes. Devis gratuit."
+      },
+      "plombier": {
+        "title": "SOS Plombier Vence & alentours",
+        "description": "Artisan plombier à Vence, Cagnes-sur-Mer, Nice et dans toutes les Alpes-Maritimes. Dépannage urgence, débouchage, chauffe-eau et rénovation. Devis gratuit et sans engagement."
+      },
+      "escadia": {
+        "title": "ESCADIA | Escape Game",
+        "description": "Escape game immersif avec acteurs professionnels. Le Refuge (horreur) et Planète Escadia (sci-fi). Vivez une expérience terrifiante de 80 minutes avec effets spéciaux et décors grandeur nature. Réservez maintenant !"
+      },
+      "depanneurs": {
+        "title": "Plateforme des Dépanneurs",
+        "description": "Service de dépannage d'urgence disponible 24h/24, 7j/7 à Nice et dans les Alpes-Maritimes. Serrurier, plombier, vitrier, électricien. Intervention en 30 minutes. Devis gratuit."
+      }
+    },
+    "label": "études de cas",
+    "title": "Nos Réalisations",
+    "subtitle": "Une sélection des produits que nous avons livrés — des MVPs aux plateformes à grande échelle.",
+    "seeProject": "Voir le projet",
+    "prev": "Précédent",
+    "next": "Suivant"
+  },
+  "about": {
+    "label": "qui sommes-nous",
+    "title": "Conçu pour livrer.",
+    "titleAlt": "Pensé pour durer.",
+    "intro1": "Nexora est une agence de développement full-service qui réunit des ingénieurs seniors et des designers produit pour créer des expériences digitales exceptionnelles. Nous accompagnons fondateurs, équipes produit et entreprises à chaque étape — du zéro au un et au-delà.",
+    "intro2": "Nous sommes sélectifs sur les projets que nous acceptons parce que nous nous tenons à un niveau d'exigence élevé. Chaque mission bénéficie de notre pleine attention avec un engagement partagé sur les résultats qui font vraiment la différence.",
+    "values": [
+      "Accès direct aux ingénieurs qui construisent votre produit",
+      "Code source propre, testé et documenté",
+      "Délais respectés, budgets maîtrisés",
+      "Communication transparente à chaque étape"
+    ],
+    "stats": {
+      "projects": "Projets livrés",
+      "satisfaction": "Satisfaction client",
+      "experience": "D'expérience",
+      "rating": "Note moyenne"
+    },
+    "process": "notre processus",
+    "steps": {
+      "discovery": "Découverte & stratégie",
+      "design": "Design & prototype",
+      "dev": "Développement itératif",
+      "delivery": "Livraison & support"
+    }
+  },
+  "contact": {
+    "label": "parlons-en",
+    "title": "Démarrer",
+    "titleLine2": "un Projet",
+    "subtitle": "Vous avez une idée ou un produit existant à améliorer ? Envoyez-nous un message — nous répondons sous un jour ouvré.",
+    "email": "Email",
+    "phone": "Téléphone",
+    "form": {
+      "name": "nom",
+      "namePlaceholder": "Alex Johnson",
+      "email": "email",
+      "emailPlaceholder": "alex@entreprise.fr",
+      "subject": "sujet",
+      "subjectPlaceholder": "Nouveau projet / Conseil / Autre",
+      "message": "message",
+      "messagePlaceholder": "Parlez-nous de votre projet, de vos objectifs et de votre calendrier…",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours…"
+    },
+    "success": "Message envoyé !",
+    "successDetail": "Nous vous contacterons très prochainement.",
+    "error": "Une erreur est survenue",
+    "errorDetail": "Veuillez réessayer ou nous écrire directement à",
+    "retry": "Réessayer",
+    "guarantee": "Réponse garantie sous 24h ouvrées."
+  },
+  "footer": {
+    "description": "Nexora est une agence de développement full-service qui conçoit des expériences web et mobiles haute performance pour les startups et les entreprises en croissance.",
+    "nav": "Navigation",
+    "socials": "Réseaux",
+    "quote": "Demande de Devis",
+    "legal": "Mentions légales",
+    "cgv": "CGV",
+    "copyright": "Tous droits réservés.",
+    "built": "built with Next.js · React · TypeScript"
+  },
+  "devis": {
+    "label": "Estimez votre projet",
+    "title": "Demande de Devis",
+    "subtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons avec une estimation détaillée sous 48 heures.",
+    "sent": "Demande envoyée !",
+    "sentDetail": "Nous reviendrons vers vous très prochainement avec votre devis.",
+    "error": "Une erreur est survenue",
+    "errorDetail": "L'envoi a échoué. Veuillez réessayer ou nous contacter directement à",
+    "retry": "Réessayer",
+    "form": {
+      "name": "Nom complet",
+      "company": "Entreprise",
+      "email": "Email",
+      "phone": "Téléphone",
+      "type": "Type de projet",
+      "budget": "Budget estimé",
+      "description": "Description du projet",
+      "submit": "Envoyer ma demande",
+      "sending": "Envoi en cours…",
+      "placeholders": {
+        "name": "Jean Dupont",
+        "company": "Acme SAS",
+        "email": "jean@acme.fr",
+        "phone": "+33 6 00 00 00 00",
+        "type": "Sélectionnez un type",
+        "budget": "Fourchette budgétaire",
+        "description": "Décrivez votre projet, vos objectifs, vos contraintes et votre calendrier idéal…"
+      },
+      "types": {
+        "web": "Application web",
+        "mobile": "Application mobile",
+        "design": "UI / UX Design",
+        "api": "API & Intégrations",
+        "audit": "Audit de performance",
+        "consulting": "Conseil technique",
+        "other": "Autre"
+      },
+      "budgets": {
+        "500_1000": "500 € — 1 000 €",
+        "1000_2000": "1 000 € — 2 000 €",
+        "2000_4000": "2 000 € — 4 000 €",
+        "4000_8000": "4 000 € — 8 000 €",
+        "gt8000": "8 000 € +"
+      },
+      "typeError": "Veuillez sélectionner un type de projet."
+    },
+    "contact": {
+      "title": "Nous contacter",
+      "phone": "Téléphone",
+      "email": "Email",
+      "prefer": "Vous préférez échanger directement ? Appelez-nous ou envoyez un email — nous répondons en général sous quelques heures pendant les jours ouvrés."
+    }
+  },
+  "ui": {
+    "toggleMenu": "Toggle menu",
+    "toggleTheme": "Toggle theme"
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "section1Title": "1. Informations légales",
+    "section1Content": "Le site web Nexora Agency est édité par Nexora Agency, nom commercial de Monsieur Lemine Mahjoub, Entrepreneur Individuel, immatriculé sous le numéro 944 710 391.\n\nNuméro de TVA intracommunautaire : FR58 930 678 123\nDirecteur de la publication : Lemine Mahjoub\nEmail : contact@nexora-agency.fr\nTéléphone : +33 6 01 07 61 29",
+    "section2Title": "2. Hébergement",
+    "section2Content": "Le site est hébergé par IONOS sur leurs serveurs situés à Paris, France.",
+    "section3Title": "3. Propriété intellectuelle",
+    "section3Content": "L'ensemble du contenu de ce site (textes, images, vidéos, etc.) est la propriété exclusive de Nexora Agency ou de ses partenaires. Toute reproduction, représentation, modification, publication ou adaptation, partielle ou totale, est interdite sans autorisation écrite préalable.",
+    "section4Title": "4. Données personnelles",
+    "section4Content": "Les informations recueillies sur ce site font l'objet d'un traitement informatique destiné à Nexora Agency pour la gestion de sa clientèle et la prospection commerciale.\n\nConformément à la loi \"Informatique et Libertés\" du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Vous pouvez exercer ce droit en nous contactant à l'adresse suivante : contact@nexora-agency.fr.",
+    "section5Title": "5. Cookies",
+    "section5Content": "Ce site utilise des cookies pour améliorer l'expérience utilisateur. En poursuivant votre navigation, vous acceptez l'utilisation de cookies conformément à notre politique de confidentialité.",
+    "section6Title": "6. Limitation de responsabilité",
+    "section6Content": "Nexora Agency ne pourra être tenue responsable des dommages directs ou indirects résultant de l'utilisation du site ou de l'impossibilité d'y accéder. Nexora Agency se réserve le droit de modifier le contenu du site à tout moment, sans préavis.",
+    "section7Title": "7. Droit applicable et juridiction compétente",
+    "section7Content": "Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents."
+  },
+  "cgv": {
+    "title": "Conditions Générales de Vente",
+    "intro": "Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les prestations de services proposées par Nexora Agency.",
+    "sections": {
+      "1": {
+        "title": "1. Objet",
+        "content": "Les présentes CGV régissent les relations contractuelles entre Nexora Agency (ci-après \"le Prestataire\") et toute personne physique ou morale (ci-après \"le Client\") ayant recours à ses services de développement, conseil ou design. Tout devis accepté ou bon de commande signé vaut acceptation des présentes conditions."
+      },
+      "2": {
+        "title": "2. Prestations",
+        "content": "Les prestations sont définies dans le devis ou le bon de commande signé par le Client. Le Prestataire s'engage à réaliser les prestations conformément aux spécifications convenues et dans le respect des délais fixés."
+      },
+      "3": {
+        "title": "3. Devis et bon de commande",
+        "content": "Tout devis est valable 30 jours à compter de sa date d'émission. La commande n'est ferme qu'après signature du bon de commande ou du devis et réception d'un acompte éventuel. Le Prestataire se réserve le droit de modifier ses tarifs après expiration de la validité du devis."
+      },
+      "4": {
+        "title": "4. Prix et modalités de paiement",
+        "content": "Les prix sont indiqués en euros, hors taxes (HT). La TVA est applicable au taux en vigueur. Les modalités de paiement sont précisées dans le devis (acompte, échéancier, solde à la livraison). Tout retard de paiement entraînera l'application de pénalités de retard de 3 fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 € pour frais de recouvrement."
+      },
+      "5": {
+        "title": "5. Délais et livraison",
+        "content": "Les délais indiqués sont donnés à titre indicatif. Un dépassement des délais ne saurait donner lieu à annulation de la commande, retenue de paiement ou dommages et intérêts, sauf accord écrit contraire. Le Prestataire s'engage à informer le Client en cas de retard prévisible."
+      },
+      "6": {
+        "title": "6. Livrables et propriété intellectuelle",
+        "content": "Les livrables sont remis au Client à la réception du solde. Les droits de propriété intellectuelle sur les livrables sont cédés au Client après règlement intégral. Les éléments fournis par le Client (textes, logos, images) restent sa propriété. Le Prestataire conserve un droit de présentation des réalisations à des fins professionnelles."
+      },
+      "7": {
+        "title": "7. Réclamations",
+        "content": "Toute réclamation doit être formulée par écrit (email ou courrier) dans un délai de 8 jours suivant la livraison. Passé ce délai, les livrables sont réputés acceptés sans réserve."
+      },
+      "8": {
+        "title": "8. Confidentialité",
+        "content": "Chaque partie s'engage à garder confidentiels les documents et informations échangés dans le cadre de la mission. Cette obligation demeure après la fin du contrat."
+      },
+      "9": {
+        "title": "9. Résiliation",
+        "content": "En cas de manquement grave d'une partie, l'autre peut résilier le contrat de plein droit après mise en demeure restée sans effet pendant 15 jours. En cas de résiliation à l'initiative du Client, les sommes déjà versées restent acquises au Prestataire."
+      },
+      "10": {
+        "title": "10. Droit applicable et litiges",
+        "content": "Les présentes CGV sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents du siège du Prestataire."
+      }
+    }
+  }
+}

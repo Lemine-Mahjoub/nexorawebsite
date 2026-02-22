@@ -9,26 +9,30 @@ import {
   Lightbulb,
   LucideIcon,
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 
-import { services } from "@/constants/site"
+import { serviceKeys, serviceIcons } from "@/constants/site"
 import { useInView } from "@/hooks/use-in-view"
+import { SectionGlow } from "@/components/shared/section-glow"
 import { cn } from "@/lib/utils"
 
-const iconMap: Record<string, LucideIcon> = {
-  Monitor,
-  Smartphone,
-  Layers,
-  Plug,
-  Gauge,
-  Lightbulb,
-}
-
 export function ServicesSection() {
+  const t = useTranslations("services")
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.05 })
 
+  const iconMap: Record<string, LucideIcon> = {
+    Monitor,
+    Smartphone,
+    Layers,
+    Plug,
+    Gauge,
+    Lightbulb,
+  }
+
   return (
-    <section id="services" className="py-28 px-4 sm:px-6 lg:px-8">
-      <div ref={ref} className="mx-auto max-w-6xl">
+    <section id="services" className="relative overflow-hidden py-28 px-4 sm:px-6 lg:px-8">
+      <SectionGlow position="right" />
+      <div ref={ref} className="relative mx-auto max-w-6xl">
         {/* Header */}
         <div
           className={cn(
@@ -37,14 +41,13 @@ export function ServicesSection() {
           )}
         >
           <p className="font-mono-accent font-semibold text-primary">
-            ce que nous faisons
+            {t("label")}
           </p>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            Nos Solutions
+            {t("title")}
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
-            Livraison complète de produits digitaux — de l&apos;architecture initiale au
-            lancement en production et au-delà.
+            {t("subtitle")}
           </p>
           {/* Expanding accent line */}
           <div className="mx-auto w-12 h-px bg-primary/50 mt-2" />
@@ -52,13 +55,13 @@ export function ServicesSection() {
 
         {/* Grid */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => {
-            const Icon = iconMap[service.icon] ?? Monitor
+          {serviceKeys.map((key, i) => {
+            const Icon = iconMap[serviceIcons[key]] ?? Monitor
             return (
               <div
-                key={service.title}
+                key={key}
                 className={cn(
-                  "group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5",
+                  "group relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm shadow-primary/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md hover:shadow-primary/8",
                   inView ? "animate-fade-in-up" : "opacity-0"
                 )}
                 style={{ animationDelay: inView ? `${i * 80 + 100}ms` : "0ms" }}
@@ -69,10 +72,10 @@ export function ServicesSection() {
                 </div>
 
                 <h3 className="mb-2 text-base font-bold tracking-tight text-foreground">
-                  {service.title}
+                  {t(`items.${key}.title`)}
                 </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
+                  {t(`items.${key}.description`)}
                 </p>
 
                 {/* Bottom accent line */}
