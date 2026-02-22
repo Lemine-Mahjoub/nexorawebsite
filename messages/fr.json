@@ -164,7 +164,10 @@
         "phone": "+33 6 00 00 00 00",
         "type": "Sélectionnez un type",
         "budget": "Fourchette budgétaire",
-        "description": "Décrivez votre projet, vos objectifs, vos contraintes et votre calendrier idéal…"
+        "description": "Décrivez votre projet, vos objectifs, vos contraintes et votre calendrier idéal…",
+        "referenceUrl": "https://exemple.com",
+        "source": "Sélectionnez une option",
+        "deadline": "Sélectionnez un délai"
       },
       "types": {
         "web": "Application web",
@@ -182,13 +185,47 @@
         "4000_8000": "4 000 € — 8 000 €",
         "gt8000": "8 000 € +"
       },
-      "typeError": "Veuillez sélectionner un type de projet."
+      "typeError": "Veuillez sélectionner un type de projet.",
+      "deadline": "Délai souhaité",
+      "referenceUrl": "Site ou appli de référence",
+      "source": "Comment nous avez-vous trouvés ?",
+      "sectionYou": "Vos coordonnées",
+      "sectionProject": "Votre projet",
+      "sectionMore": "Quelques détails supplémentaires"
+    },
+    "deadlines": {
+      "asap": "Dès que possible",
+      "lt1m": "Moins d'1 mois",
+      "1to3m": "1 à 3 mois",
+      "3to6m": "3 à 6 mois",
+      "flexible": "Pas de contrainte particulière"
+    },
+    "sources": {
+      "google": "Google / moteur de recherche",
+      "linkedin": "LinkedIn",
+      "word_of_mouth": "Recommandation / bouche-à-oreille",
+      "social": "Réseaux sociaux",
+      "other": "Autre"
     },
     "contact": {
       "title": "Nous contacter",
       "phone": "Téléphone",
       "email": "Email",
       "prefer": "Vous préférez échanger directement ? Appelez-nous ou envoyez un email — nous répondons en général sous quelques heures pendant les jours ouvrés."
+    },
+    "steps": {
+      "title": "Ce qui se passe ensuite",
+      "1title": "Analyse de votre demande",
+      "1desc": "Nous étudions votre projet en détail sous 48 h ouvrées.",
+      "2title": "Appel de cadrage",
+      "2desc": "Un court appel pour clarifier vos besoins et répondre à vos questions.",
+      "3title": "Devis détaillé",
+      "3desc": "Vous recevez une proposition claire avec planning et tarification."
+    },
+    "guarantees": {
+      "response": "Réponse sous 48 h",
+      "noObligation": "Sans engagement",
+      "confidential": "100 % confidentiel"
     }
   },
   "ui": {

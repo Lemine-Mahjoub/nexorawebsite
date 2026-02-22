@@ -17,13 +17,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 })
   }
 
-  const { name, company, email, phone, type, budget, description } = body
+  const { name, company, email, phone, type, budget, deadline, description, referenceUrl, source } = body
 
   if (!name || !email || !type || !description) {
     return NextResponse.json({ error: "Champs requis manquants." }, { status: 400 })
   }
 
-  const fields: DevisFields = { name, company, email, phone, type, budget, description }
+  const fields: DevisFields = { name, company, email, phone, type, budget, deadline, description, referenceUrl, source }
 
   try {
     await Promise.all([

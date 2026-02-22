@@ -164,7 +164,10 @@
         "phone": "+1 555 000 0000",
         "type": "Select a type",
         "budget": "Budget range",
-        "description": "Describe your project, goals, constraints and ideal timeline…"
+        "description": "Describe your project, goals, constraints and ideal timeline…",
+        "referenceUrl": "https://example.com",
+        "source": "Select an option",
+        "deadline": "Select a timeline"
       },
       "types": {
         "web": "Web application",
@@ -182,13 +185,47 @@
         "4000_8000": "€4,000 — €8,000",
         "gt8000": "€8,000+"
       },
-      "typeError": "Please select a project type."
+      "typeError": "Please select a project type.",
+      "deadline": "Desired timeline",
+      "referenceUrl": "Reference website or app",
+      "source": "How did you find us?",
+      "sectionYou": "Your details",
+      "sectionProject": "Your project",
+      "sectionMore": "A few more details"
+    },
+    "deadlines": {
+      "asap": "As soon as possible",
+      "lt1m": "Less than 1 month",
+      "1to3m": "1 to 3 months",
+      "3to6m": "3 to 6 months",
+      "flexible": "No particular constraint"
+    },
+    "sources": {
+      "google": "Google / search engine",
+      "linkedin": "LinkedIn",
+      "word_of_mouth": "Referral / word of mouth",
+      "social": "Social media",
+      "other": "Other"
     },
     "contact": {
       "title": "Contact us",
       "phone": "Phone",
       "email": "Email",
       "prefer": "Prefer to chat directly? Call us or send an email — we typically respond within a few hours on business days."
+    },
+    "steps": {
+      "title": "What happens next",
+      "1title": "We review your request",
+      "1desc": "We study your project in detail within 48 business hours.",
+      "2title": "Scoping call",
+      "2desc": "A short call to clarify your needs and answer your questions.",
+      "3title": "Detailed quote",
+      "3desc": "You receive a clear proposal with timeline and pricing."
+    },
+    "guarantees": {
+      "response": "Response within 48 h",
+      "noObligation": "No obligation",
+      "confidential": "100% confidential"
     }
   },
   "ui": {

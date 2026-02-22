@@ -48,7 +48,10 @@ export interface DevisFields {
   phone?: string
   type: string
   budget?: string
+  deadline?: string
   description: string
+  referenceUrl?: string
+  source?: string
 }
 
 export function devisInternalHtml(f: DevisFields) {
@@ -62,6 +65,9 @@ export function devisInternalHtml(f: DevisFields) {
       ${row("Téléphone", f.phone)}
       ${row("Type de projet", f.type)}
       ${row("Budget", f.budget)}
+      ${row("Délai souhaité", f.deadline)}
+      ${row("Référence", f.referenceUrl)}
+      ${row("Source", f.source)}
     </table>
     <p style="margin-top:20px;font-size:13px;font-weight:600;color:#71717a">Description</p>
     <div class="message-box">${f.description}</div>`,
@@ -77,6 +83,9 @@ export function devisInternalText(f: DevisFields) {
     f.phone ? `Téléphone: ${f.phone}` : "",
     `Type: ${f.type}`,
     f.budget ? `Budget: ${f.budget}` : "",
+    f.deadline ? `Délai: ${f.deadline}` : "",
+    f.referenceUrl ? `Référence: ${f.referenceUrl}` : "",
+    f.source ? `Source: ${f.source}` : "",
     `\nDescription:\n${f.description}`,
   ]
     .filter(Boolean)
