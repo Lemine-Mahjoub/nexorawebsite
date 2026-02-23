@@ -8,11 +8,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare SSH key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 -d > ssh_key
+          chmod 600 ssh_key
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key_path: ${{ github.workspace }}/ssh_key
           script: |
             cd /home/ubuntu/nexorawebsite && ./deploy.sh
