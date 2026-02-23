@@ -90,7 +90,6 @@ export function Navbar() {
           className="object-contain invert transition-opacity group-hover:opacity-90 dark:invert-0"
           priority
         />
-          {siteConfig.name}
         </Link>
 
         {/* Desktop nav */}

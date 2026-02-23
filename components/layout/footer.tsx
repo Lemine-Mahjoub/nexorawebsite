@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl"
-import { Instagram, Linkedin, Code2, Mail, Phone } from "lucide-react"
+import Image from "next/image"
+import { Instagram, Linkedin, Mail, Phone } from "lucide-react"
 
 import { Link } from "@/i18n/navigation"
 import { navLinkKeys, navHrefs, siteConfig } from "@/constants/site"
@@ -37,11 +38,14 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4 lg:col-span-2">
             <Link href="/" className="group inline-flex items-center gap-2 text-xl font-bold tracking-tight">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <Code2 className="h-4 w-4" />
-              </span>
-              {siteConfig.name}
-              <span className="text-primary">.</span>
+              <Image
+                src="/logo.webp"
+                alt={`${siteConfig.name} logo`}
+                width={80}
+                height={28}
+                className="object-contain invert transition-opacity group-hover:opacity-90 dark:invert-0"
+                priority
+              />
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               {t("description")}
