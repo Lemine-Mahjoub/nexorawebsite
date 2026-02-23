@@ -13,7 +13,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           echo "$SSH_KEY" > $GITHUB_WORKSPACE/ssh_key
-          chmod 600 $GITHUB_WORKSPACE/ssh_key
+          chmod 644 $GITHUB_WORKSPACE/ssh_key
 
       - name: List files and permissions
         run: ls -l $GITHUB_WORKSPACE
