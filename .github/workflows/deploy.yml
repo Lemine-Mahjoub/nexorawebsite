@@ -12,8 +12,8 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          echo "$SSH_KEY" | sed 's/\\n/\n/g' > ssh_key
-          chmod 644 ssh_key
+          echo "$SSH_KEY" > ssh_key
+          chmod 600 ssh_key
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
