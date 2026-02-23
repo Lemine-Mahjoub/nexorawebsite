@@ -12,8 +12,11 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          echo "$SSH_KEY" > ssh_key
-          chmod 600 ssh_key
+          echo "$SSH_KEY" > $GITHUB_WORKSPACE/ssh_key
+          chmod 600 $GITHUB_WORKSPACE/ssh_key
+
+      - name: List files and permissions
+        run: ls -l $GITHUB_WORKSPACE
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
