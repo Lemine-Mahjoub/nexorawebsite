@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "nexora-agency",
-      script: "npm",
+      script: "pnpm",
       args: "run start",
       cwd: "/home/ubuntu/nexorawebsite",
       env: {

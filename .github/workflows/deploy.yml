@@ -1,0 +1,28 @@
+name: Deploy nexora-agency
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare SSH key
+        env:
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_KEY" > $GITHUB_WORKSPACE/ssh_key
+          chmod 644 $GITHUB_WORKSPACE/ssh_key
+
+      - name: List files and permissions
+        run: ls -l $GITHUB_WORKSPACE
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key_path: ${{ github.workspace }}/ssh_key
+          script: |
+            cd /home/ubuntu/nexorawebsite && ./deploy.sh

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Menu, X, FileText, Code2, ChevronDown } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 
@@ -81,11 +82,14 @@ export function Navbar() {
           href="/"
           className="group flex items-center gap-2 text-xl font-bold tracking-tight"
         >
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-            <Code2 className="h-4 w-4" />
-          </span>
-          {siteConfig.name}
-          <span className="text-primary">.</span>
+        <Image
+          src="/logo.webp"
+          alt={`${siteConfig.name} logo`}
+          width={80}
+          height={28}
+          className="object-contain invert transition-opacity group-hover:opacity-90 dark:invert-0"
+          priority
+        />
         </Link>
 
         {/* Desktop nav */}

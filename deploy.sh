@@ -10,10 +10,10 @@ git fetch origin
 git pull origin main
 
 echo "=== Installation des dépendances ==="
-npm install
+pnpm install
 
 echo "=== Build du projet ==="
-npm run build
+pnpm run build
 
 echo "=== (Re)démarrage PM2 ==="
 if pm2 describe nexora-agency >/dev/null 2>&1; then
