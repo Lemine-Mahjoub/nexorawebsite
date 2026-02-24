@@ -56,7 +56,7 @@ export const workItemKeys = [
   "depanneurs",
 ] as const
 export const workItems = [
-  { key: "yesmorebet" as const, image: "/work/yesmorebet.jpg", href: "https://yesmorebet.com" },
+  { key: "yesmorebet" as const, image: "/work/yesmorebet.jpg", href: "https://yesmorebet.fr" },
   { key: "plombier" as const, image: "/work/plombier.png", href: "https://plombier-vence.fr/" },
   { key: "escadia" as const, image: "/work/escadia.png", href: "https://escadia.fr/" },
   { key: "depanneurs" as const, image: "/work/Depanneurs.png", href: "https://www.la-plateforme-des-depanneurs.fr/" },

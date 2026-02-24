@@ -17,24 +17,69 @@ export async function generateMetadata(): Promise<Metadata> {
   const messages = await getMessages()
   const hero = messages?.hero as { description?: string } | undefined
   const description = hero?.description ?? siteConfig.description
+  const baseUrl = siteConfig.url ?? "http://localhost:3000"
+  const locale = await getLocale()
+
   return {
     title: {
       default: siteConfig.name,
       template: `%s — ${siteConfig.name}`,
     },
     description,
-    metadataBase: new URL(siteConfig.url ?? "http://localhost:3000"),
+    keywords: [
+      "agence web",
+      "développement web",
+      "application mobile",
+      "Nexora",
+      "startup",
+      "full-service",
+      "web agency",
+      "mobile app",
+      "digital products",
+    ],
+    authors: [{ name: siteConfig.name, url: baseUrl }],
+    creator: siteConfig.name,
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: baseUrl,
+      languages: {
+        fr: `${baseUrl}/fr`,
+        en: `${baseUrl}/en`,
+      },
+    },
     openGraph: {
       title: siteConfig.name,
       description,
-      url: siteConfig.url,
+      url: `${baseUrl}/${locale}`,
       siteName: siteConfig.name,
       type: "website",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      images: [
+        {
+          url: "/logo.webp",
+          width: 512,
+          height: 180,
+          alt: siteConfig.name,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: siteConfig.name,
       description,
+      images: ["/logo.webp"],
+    },
+    icons: {
+      icon: "/logo.webp",
+      apple: "/logo.webp",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
     },
   }
 }
