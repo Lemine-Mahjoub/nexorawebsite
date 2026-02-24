@@ -96,7 +96,7 @@ export function HeroSection() {
             size="lg"
             className="gap-2 px-6 backdrop-blur-sm"
           >
-            <Link href="/#contact">
+            <Link href="/devis">
               {t("ctaContact")}
             </Link>
           </Button>
